@@ -91,4 +91,36 @@ pip install pandas
 
 Based on manually inspecting close to 100 of the categorizations GPT made for the tweets, I feel confident that it performed fairly closely to how a human would categorize the tweets.
 
-3. I filtered the data by date and non-retweets and reproduced the tables and figures to the best of my abilities. The results differ quite substantially from the original analysis, however, it seems to be due to the lack of access to their full data set, not a specific methodological issue in the reproduction.
+3. I filtered the data by date and non-retweets and reproduced the tables and figures to the best of my abilities.
+
+### Results
+
+The results differ quite substantially from the original analysis, however, it seems to be due to the lack of access to their full data set, not a specific methodological issue in the reproduction – the use of GPT to do the categorization does not seem like the primary driver of the discrepencies in results.
+
+#### 'What Trump talks most about on Twitter' Table
+
+![T1 Original](figures/original-analysis/T1-original.png)
+
+![T1 Reproduction](figures/reproduction/T1-reproduction.png)
+
+Here we see that the percetages of topic mentions differ substantially between the analyses, likely because a. the dataset that was published and thus used in the reproduction is substantially smaller than the dataset that was claimed to use in the orignal analysis and b. the dataset also didn't include retweets other people made of Trump's posts – I instead used Trump's retweets of other's posts to recreate the column which was likely not what was done in the original analysis.
+
+#### 'The 2016 campaign in Donald Trump's tweets – Number of times a candidate was mentioned in @realDonaldTrump tweets' Graph
+
+![T2 Original](figures/original-analysis/T2-original.png)
+
+![T2 Reproduction](figures/reproduction/T2-reproduction.png)
+
+Similarly, here the graphs differ between the analyses, but based on a non-rigorous spot check, it seems as though the graph I produced is a rough subset of the graph in the original analysis, based on way fewer tweets (max frequncy per candidate per day is 4 in the reproduction but 14 in the original analysis). This supports the general conclusion that the discrepencies between the reproduction and original analysis are largely tied to the limited subset of data I had to work with, as opposed to severe methodological issues.
+
+#### 'Trump is really excited to be running for president(!)' Table
+
+![T3 Original](figures/original-analysis/T3-original.png)
+
+![T3 Reproduction](figures/reproduction/T3-reproduction.png)
+
+While I was only able to recreate one column from this table due to the lack of data provided on the tweets of the other candidates being compared to Trump, here the numbers seem to generally match those of the original analysis, further supporting the conclusion that a primary driver of discrepencies in this analysis is the dataset completion.
+
+### Conclusions
+
+Overall, this analysis shows that LLMs can serve as a useful tool to efficiently reproduce analyses that were once too tedious and time intensive to evaluate. Dataset completeness quickly emerged as a major problem in reproducing the results of the chosen analysis, highlighting the need achieve reproducability by not not just providing data, but rigorously checking that the full data is provided, with no ambiguities in provenance, processing, and analysis.
